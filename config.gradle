@@ -9,7 +9,7 @@ ext {
             minSdkVersion       : 14,
             targetSdkVersion    : 27,
             versionCode         : 7,
-            versionName         : "1.5.1"
+            versionName         : "1.0.1"
     ]
     //官方库
     supportV4 = "com.android.support:support-v4:${supportVersion}"
