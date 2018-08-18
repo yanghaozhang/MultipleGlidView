@@ -1,3 +1,5 @@
+[ ![Download](https://api.bintray.com/packages/yhzz/maven/MultipleGlidView/images/download.svg) ](https://bintray.com/yhzz/maven/MultipleGlidView/_latestVersion)
+
 # MultipleGlidView
 这是一个创建网格的控件，并提供在指定网格内绘画的功能，如下图，就是通过4个该控件绘制而成的
 
