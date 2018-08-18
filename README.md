@@ -1,5 +1,7 @@
 # MultipleGlidView
-这是一个创建网格的控件，并提供在指定网格内绘画的功能
+这是一个创建网格的控件，并提供在指定网格内绘画的功能，如下图，就是通过4个该控件绘制而成的
+
+![github](http://p8bciigmy.bkt.clouddn.com/device-2018-08-18-144508.png)
 
 ## 使用
 
