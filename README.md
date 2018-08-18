@@ -7,6 +7,10 @@
 
 ## 使用
 
+        dependencies {
+            implementation "com.simple.multipleglid:multiple-glid-view:1.0.1"
+        }
+
 ## 示例
 
 指定格子大小，宽度高度自适应
