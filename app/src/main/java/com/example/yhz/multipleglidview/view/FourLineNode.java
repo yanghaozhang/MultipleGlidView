@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import com.example.yhz.multipleglidview.Utils;
 import com.example.yhz.multipleglidview.YHZApplication;
 
 /**
@@ -45,7 +46,7 @@ public class FourLineNode implements NodeImp {
         paint.setStyle(Paint.Style.STROKE);
 
         if (mLineHeight < 0) {
-            mLineHeight = YHZGridView.dip2px(YHZApplication.mInstance, 2);
+            mLineHeight = Utils.dip2px(YHZApplication.mInstance, 2);
         }
         paint.setStrokeWidth(mLineHeight);
         float lineSub = (float) (mLineHeight / Math.sqrt(2));

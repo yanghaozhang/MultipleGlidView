@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="MultipleGlidView">
+        <attr name="row_count" format="integer"/>
+        <attr name="column_count" format="integer"/>
+        
+        <attr name="node_width" format="dimension"/>
+        <attr name="node_height" format="dimension"/>
+        
+        <attr name="node_is_square" format="boolean"/>
+        
+        <attr name="line_color" format="color"/>
+        <attr name="line_weight" format="dimension"/>
+        
+        <attr name="no_left_line" format="boolean"/>
+        <attr name="no_right_line" format="boolean"/>
+        <attr name="no_top_line" format="boolean"/>
+        <attr name="no_bottom_line" format="boolean"/>
+    </declare-styleable>
+
+</resources>

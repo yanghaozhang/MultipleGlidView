@@ -3,21 +3,24 @@ package com.example.yhz.multipleglidview;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 
 import com.example.yhz.multipleglidview.view.FontNode;
 import com.example.yhz.multipleglidview.view.FourRingsNode;
 import com.example.yhz.multipleglidview.view.NodeImp;
 import com.example.yhz.multipleglidview.view.SingleRingNode;
-import com.example.yhz.multipleglidview.view.YHZGridView;
+import com.example.yhz.multipleglidview.view.MultipleGlidView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private YHZGridView top;
-    private YHZGridView left;
-    private YHZGridView right;
+    private MultipleGlidView top;
+    private MultipleGlidView left;
+    private MultipleGlidView middle;
+    private MultipleGlidView right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         top = findViewById(R.id.top);
         left = findViewById(R.id.left);
+        middle = findViewById(R.id.middle);
         right = findViewById(R.id.right);
         makeTestData();
     }
 
     private void makeTestData() {
         List<NodeImp> list = new ArrayList<>();
-        float nodeWidth = YHZGridView.dip2px(this, 20);
         list.add(new FontNode(0, 0, "龙", Color.RED, Color.BLUE));
         list.add(new FontNode(0, 1, "龙", Color.WHITE, Color.GRAY));
         list.add(new FontNode(1, 2, "龙", Color.GRAY, Color.BLUE));
@@ -44,33 +47,33 @@ public class MainActivity extends AppCompatActivity {
         list.add(new FontNode(3, 5, "龙", Color.BLUE, Color.RED));
         list.add(new FontNode(5, 5, "龙", Color.DKGRAY, Color.BLUE));
         top.setNodeList(list);
-        top.setLineH(YHZGridView.dip2px(this, 1));
-        top.setNoBottom(true);
-        top.setColumnCount(6);
-        top.setRowCount(6);
-        top.setmNodeDimen(new float[]{nodeWidth,nodeWidth});
 
         list = new ArrayList<>();
-        list.add(new SingleRingNode(2, 1, YHZGridView.dip2px(this, 1), Color.YELLOW, true));
+        list.add(new SingleRingNode(2, 1, Utils.dip2px(this, 1), Color.BLUE, true));
+        float w = (Utils.dip2px(this, 20) -1) / 2;
+        Log.e("MultipleGlidView", "Class:MainActivity-----Method:makeTestData\n" + w);
+        left.setmNodeDimen(new float[]{w, w});
         left.setNodeList(list);
-        left.setColumnCount(3);
-        left.setRowCount(3);
-        left.setNoRight(true);
-        left.setLineH(YHZGridView.dip2px(this, 1));
-        left.setmNodeDimen(new float[]{nodeWidth,nodeWidth});
+
+        list = new ArrayList<>();
+        list.add(new SingleRingNode(2, 1, Utils.dip2px(this, 1), Color.BLUE, true));
+        middle.setmNodeDimen(new float[]{w, w});
+        middle.setNodeList(list);
 
         list = new ArrayList<>();
         right.setNodeList(list);
-        right.setColumnCount(3);
-        right.setRowCount(3);
-        right.setLineH(YHZGridView.dip2px(this, 1));
-        right.setmNodeDimen(new float[]{nodeWidth,nodeWidth});
         list.add(new FourRingsNode(2,
                 0,
-                Color.YELLOW,
+                Color.BLUE,
                 Color.GRAY,
-                YHZGridView.dip2px(this, 1),
+                Utils.dip2px(this, 1),
                 0,
                 1));
+    }
+
+    public void onclick(View view) {
+        List<NodeImp> list = new ArrayList<>();
+        list.add(new FontNode(3, 3, "帅", Color.DKGRAY, Color.BLUE));
+        top.setNodeList(list);
     }
 }

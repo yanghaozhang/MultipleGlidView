@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 
+import com.example.yhz.multipleglidview.Utils;
 import com.example.yhz.multipleglidview.YHZApplication;
 
 /**
@@ -43,7 +44,7 @@ public class FourRingsNode implements NodeImp {
     @Override
     public void draw(Canvas canvas, Paint paint, float left, float top, float right, float bottom) {
         if (mRingHeight < 0) {
-            mRingHeight = YHZGridView.dip2px(YHZApplication.mInstance, 6);
+            mRingHeight = Utils.dip2px(YHZApplication.mInstance, 6);
         }
         paint.setStrokeWidth(mRingHeight);
         paint.setStyle(Paint.Style.STROKE);

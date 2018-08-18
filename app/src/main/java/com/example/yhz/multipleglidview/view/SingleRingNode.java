@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 
+import com.example.yhz.multipleglidview.Utils;
 import com.example.yhz.multipleglidview.YHZApplication;
 
 /**
@@ -45,10 +46,10 @@ public class SingleRingNode implements NodeImp {
     public void draw(Canvas canvas, Paint paint, float left, float top, float right, float bottom) {
         float nodeW = Math.abs(right - left) / 2;
         if (mRingHeight < 0) {
-            mRingHeight = YHZGridView.dip2px(YHZApplication.mInstance, 2);
+            mRingHeight = Utils.dip2px(YHZApplication.mInstance, 2);
         }
         if (mLineHeight < 0) {
-            mLineHeight = YHZGridView.dip2px(YHZApplication.mInstance, 2);
+            mLineHeight = Utils.dip2px(YHZApplication.mInstance, 2);
         }
         paint.setStrokeWidth(mRingHeight);
         paint.setColor(mRingColor);
