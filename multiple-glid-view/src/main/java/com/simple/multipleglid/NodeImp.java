@@ -1,4 +1,4 @@
-package com.example.yhz.multipleglidview.view;
+package com.simple.multipleglid;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

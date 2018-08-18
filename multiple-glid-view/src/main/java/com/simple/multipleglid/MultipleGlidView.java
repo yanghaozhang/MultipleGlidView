@@ -1,4 +1,4 @@
-package com.example.yhz.multipleglidview.view;
+package com.simple.multipleglid;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,8 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-
-import com.example.yhz.multipleglidview.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,10 +107,12 @@ public class MultipleGlidView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mNodeWidthNoExactly && MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY) {
-            mNodeDimen[0] = (MeasureSpec.getSize(widthMeasureSpec) - getWidthRevise() * mLineWeight) / mColumnCount - mLineWeight;
+            mNodeDimen[0] =
+                    (MeasureSpec.getSize(widthMeasureSpec) - getWidthRevise() * mLineWeight) / mColumnCount - mLineWeight;
         }
         if (mNodeHeightNoExactly && MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.EXACTLY) {
-            mNodeDimen[1] = (MeasureSpec.getSize(heightMeasureSpec) - getHeightRevise() * mLineWeight) / mRowCount - mLineWeight;
+            mNodeDimen[1] =
+                    (MeasureSpec.getSize(heightMeasureSpec) - getHeightRevise() * mLineWeight) / mRowCount - mLineWeight;
         }
 
         if (MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.EXACTLY) {

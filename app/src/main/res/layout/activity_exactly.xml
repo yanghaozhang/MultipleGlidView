@@ -7,7 +7,7 @@
     android:paddingLeft="10dp"
     android:paddingTop="10dp">
     
-    <com.example.yhz.multipleglidview.view.MultipleGlidView
+    <com.simple.multipleglid.MultipleGlidView
         android:id="@+id/top"
         android:layout_width="611px"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:node_width="20dp"
         app:row_count="12" />
     
-    <com.example.yhz.multipleglidview.view.MultipleGlidView
+    <com.simple.multipleglid.MultipleGlidView
         android:id="@+id/left"
         android:layout_width="152.75px"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         app:node_is_square="true"
         app:row_count="10" />
     
-    <com.example.yhz.multipleglidview.view.MultipleGlidView
+    <com.simple.multipleglid.MultipleGlidView
         android:id="@+id/middle"
         android:layout_width="152.75px"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         app:node_is_square="true"
         app:row_count="10" />
     
-    <com.example.yhz.multipleglidview.view.MultipleGlidView
+    <com.simple.multipleglid.MultipleGlidView
         android:id="@+id/right"
         android:layout_width="305.5px"
         android:layout_height="wrap_content"

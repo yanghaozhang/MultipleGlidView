@@ -1,1 +1,1 @@
-include ':app'
+include ':app',":multiple-glid-view"

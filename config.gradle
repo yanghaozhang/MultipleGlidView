@@ -1,0 +1,21 @@
+def supportVersion = "27.1.1"
+
+ext {
+
+    android = [
+            compileSdkVersion   : 27,
+            buildToolsVersion   : "27.0.3",
+            applicationId       : "com.simple.multipleglid",
+            minSdkVersion       : 14,
+            targetSdkVersion    : 27,
+            versionCode         : 7,
+            versionName         : "1.5.1"
+    ]
+    //官方库
+    supportV4 = "com.android.support:support-v4:${supportVersion}"
+    supportAppcompatV7 = "com.android.support:appcompat-v7:${supportVersion}"
+    supportDesign = "com.android.support:design:${supportVersion}"
+    supportRecyclerView = "com.android.support:recyclerview-v7:${supportVersion}"
+
+    junit = "junit:junit:4.12"
+}

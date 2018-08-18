@@ -1,16 +1,16 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -19,10 +19,6 @@ android {
     }
 }
 
-dependencies {
-    implementation project(':multiple-glid-view')
+dependencies { }
 
-    implementation rootProject.ext.supportAppcompatV7
-    implementation rootProject.ext.supportDesign
-    testImplementation rootProject.ext.junit
-}
+//apply from: "upload.gradle"

@@ -5,8 +5,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 
-import com.example.yhz.multipleglidview.Utils;
+import com.simple.multipleglid.Utils;
 import com.example.yhz.multipleglidview.YHZApplication;
+import com.simple.multipleglid.NodeImp;
 
 /**
  * Created by yanghaozhang on 2018/7/4.

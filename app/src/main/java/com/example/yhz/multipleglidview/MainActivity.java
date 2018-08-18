@@ -8,9 +8,10 @@ import android.view.View;
 
 import com.example.yhz.multipleglidview.view.FontNode;
 import com.example.yhz.multipleglidview.view.FourRingsNode;
-import com.example.yhz.multipleglidview.view.NodeImp;
+import com.simple.multipleglid.NodeImp;
 import com.example.yhz.multipleglidview.view.SingleRingNode;
-import com.example.yhz.multipleglidview.view.MultipleGlidView;
+import com.simple.multipleglid.MultipleGlidView;
+import com.simple.multipleglid.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

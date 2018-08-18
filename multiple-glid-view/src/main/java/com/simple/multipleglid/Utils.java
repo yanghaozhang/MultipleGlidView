@@ -1,4 +1,4 @@
-package com.example.yhz.multipleglidview;
+package com.simple.multipleglid;
 
 import android.content.Context;
 
