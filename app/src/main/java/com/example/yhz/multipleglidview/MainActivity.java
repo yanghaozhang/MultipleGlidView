@@ -1,5 +1,6 @@
 package com.example.yhz.multipleglidview;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -76,5 +77,9 @@ public class MainActivity extends AppCompatActivity {
         List<NodeImp> list = new ArrayList<>();
         list.add(new FontNode(3, 3, "帅", Color.DKGRAY, Color.BLUE));
         top.setNodeList(list);
+    }
+
+    public void goExactlyWidthActivity(View view) {
+        startActivity(new Intent(this, ExactlyWidthActivity.class));
     }
 }
