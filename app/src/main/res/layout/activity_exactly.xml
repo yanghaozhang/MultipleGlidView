@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp">
+    
+    <com.example.yhz.multipleglidview.view.MultipleGlidView
+        android:id="@+id/top"
+        android:layout_width="611px"
+        android:layout_height="wrap_content"
+        app:column_count="10"
+        app:no_bottom_line="true"
+        app:node_is_square="true"
+        app:node_width="20dp"
+        app:row_count="12" />
+    
+    <com.example.yhz.multipleglidview.view.MultipleGlidView
+        android:id="@+id/left"
+        android:layout_width="152.75px"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top"
+        app:column_count="5"
+        app:no_right_line="true"
+        app:node_is_square="true"
+        app:row_count="10" />
+    
+    <com.example.yhz.multipleglidview.view.MultipleGlidView
+        android:id="@+id/middle"
+        android:layout_width="152.75px"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top"
+        android:layout_toRightOf="@id/left"
+        app:column_count="5"
+        app:no_right_line="true"
+        app:node_is_square="true"
+        app:row_count="10" />
+    
+    <com.example.yhz.multipleglidview.view.MultipleGlidView
+        android:id="@+id/right"
+        android:layout_width="305.5px"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top"
+        android:layout_alignRight="@id/top"
+        app:column_count="5"
+        app:node_is_square="true"
+        app:row_count="5" />
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onclick"
+        android:text="click" />
+</RelativeLayout>

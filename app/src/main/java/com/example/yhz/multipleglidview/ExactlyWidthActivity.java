@@ -8,14 +8,17 @@ import android.view.View;
 
 import com.example.yhz.multipleglidview.view.FontNode;
 import com.example.yhz.multipleglidview.view.FourRingsNode;
+import com.example.yhz.multipleglidview.view.MultipleGlidView;
 import com.example.yhz.multipleglidview.view.NodeImp;
 import com.example.yhz.multipleglidview.view.SingleRingNode;
-import com.example.yhz.multipleglidview.view.MultipleGlidView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * 指定宽度，高度自适应
+ */
+public class ExactlyWidthActivity extends AppCompatActivity {
 
     private MultipleGlidView top;
     private MultipleGlidView left;
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_exactly);
         initView();
     }
 
@@ -50,25 +53,21 @@ public class MainActivity extends AppCompatActivity {
 
         list = new ArrayList<>();
         list.add(new SingleRingNode(2, 1, Utils.dip2px(this, 1), Color.BLUE, true));
-        float w = Utils.cutNodeWidth(this, 20, 2, left.getLineWeight());
-        Log.e("MultipleGlidView", "Class:MainActivity-----Method:makeTestData\n" + w);
-        left.setmNodeDimen(new float[]{w, w});
         left.setNodeList(list);
 
         list = new ArrayList<>();
         list.add(new SingleRingNode(2, 1, Utils.dip2px(this, 1), Color.BLUE, true));
-        middle.setmNodeDimen(new float[]{w, w});
         middle.setNodeList(list);
 
         list = new ArrayList<>();
         right.setNodeList(list);
         list.add(new FourRingsNode(2,
-                                   0,
-                                   Color.BLUE,
-                                   Color.GRAY,
-                                   Utils.dip2px(this, 1),
-                                   0,
-                                   1));
+                0,
+                Color.BLUE,
+                Color.GRAY,
+                Utils.dip2px(this, 1),
+                0,
+                1));
     }
 
     public void onclick(View view) {

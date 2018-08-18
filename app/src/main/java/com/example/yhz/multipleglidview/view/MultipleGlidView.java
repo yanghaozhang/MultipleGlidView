@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.example.yhz.multipleglidview.R;
@@ -109,6 +108,13 @@ public class MultipleGlidView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (mNodeWidthNoExactly && MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY) {
+            mNodeDimen[0] = (MeasureSpec.getSize(widthMeasureSpec) - getWidthRevise() * mLineWeight) / mColumnCount - mLineWeight;
+        }
+        if (mNodeHeightNoExactly && MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.EXACTLY) {
+            mNodeDimen[1] = (MeasureSpec.getSize(heightMeasureSpec) - getHeightRevise() * mLineWeight) / mRowCount - mLineWeight;
+        }
+
         if (MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.EXACTLY) {
             if (mNodeDimen[0] == -1) {
                 if (mNodeDimen[1] > 0 && mNodeSquare) {
@@ -131,7 +137,7 @@ public class MultipleGlidView extends View {
                     (int) ((getOneNodeHeight()) * mRowCount + getHeightRevise() * mLineWeight + 0.5f);
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
         }
-        Log.e(TAG, "Class:YHZGridView-----Method:onMeasure\n");
+//        Log.e(TAG, "Class:YHZGridView-----Method:onMeasure\n");
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
@@ -184,32 +190,14 @@ public class MultipleGlidView extends View {
                 mWidth = (getOneNodeWidth()) * mColumnCount + widthRevise * mLineWeight;
             }
         }
-        Log.e(TAG,
-              "onSizeChanged: " + w + "---" + h + "---" + mWidth + "---" + mHeight + "===" + mNodeDimen[0] + "---" + mNodeDimen[1] + "---" + mLineWeight);
-        Log.e(TAG, "onSizeChanged: " + designWidth + "---" + designHeight);
-    }
-
-    private float getOneNodeHeight() {
-        return mNodeDimen[1] + mLineWeight;
-    }
-
-    private float getOneNodeWidth() {
-        return mNodeDimen[0] + mLineWeight;
-    }
-
-    /*修正没有left边框，right边框的宽度*/
-    private int getWidthRevise() {
-        return mNoLeft && mNoRight ? -1 : (!mNoLeft && !mNoRight ? 1 : 0);
-    }
-
-    /*修正没有top边框，bottom边框的宽度*/
-    private int getHeightRevise() {
-        return mNoTop && mNoBottom ? -1 : (!mNoTop && !mNoBottom ? 1 : 0);
+//        Log.e(TAG,
+//              "onSizeChanged: " + w + "---" + h + "---" + mWidth + "---" + mHeight + "===" + mNodeDimen[0] + "---" + mNodeDimen[1] + "---" + mLineWeight);
+//        Log.e(TAG, "onSizeChanged: " + designWidth + "---" + designHeight);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Log.e(TAG, "onDraw: ");
+//        Log.e(TAG, "onDraw: ");
         super.onDraw(canvas);
 
         mPaint.setStyle(Paint.Style.FILL);
@@ -255,33 +243,27 @@ public class MultipleGlidView extends View {
         }
     }
 
-    public void setRowCount(int rowCount) {
-        this.mRowCount = rowCount;
+    private float getOneNodeHeight() {
+        return mNodeDimen[1] + mLineWeight;
     }
 
-    public void setColumnCount(int columnCount) {
-        this.mColumnCount = columnCount;
+    private float getOneNodeWidth() {
+        return mNodeDimen[0] + mLineWeight;
     }
 
-    public void setLineColor(int lineColor) {
-        this.mLineColor = lineColor;
+    /*修正没有left边框，right边框的宽度*/
+    private int getWidthRevise() {
+        return mNoLeft && mNoRight ? -1 : (!mNoLeft && !mNoRight ? 1 : 0);
+    }
+
+    /*修正没有top边框，bottom边框的宽度*/
+    private int getHeightRevise() {
+        return mNoTop && mNoBottom ? -1 : (!mNoTop && !mNoBottom ? 1 : 0);
     }
 
     public void setNodeList(List<NodeImp> nodeList) {
         this.mNodeList = nodeList;
         invalidate();
-    }
-
-    public void setLineWeight(float lineH) {
-        this.mLineWeight = lineH;
-    }
-
-    public void setNoRight(boolean noRight) {
-        this.mNoRight = noRight;
-    }
-
-    public void setNoBottom(boolean noBottom) {
-        this.mNoBottom = noBottom;
     }
 
     public void setmNodeDimen(float[] mNodeDimen) {
@@ -292,5 +274,89 @@ public class MultipleGlidView extends View {
         if (mNodeDimen[1] > 0) {
             mNodeHeightNoExactly = false;
         }
+    }
+
+    public void setmNodeWidthDimen(float nodeDimen) {
+        if ((mNodeDimen[0] = nodeDimen) > 0) {
+            mNodeWidthNoExactly = false;
+        }
+    }
+
+    public void setmNodeHeightDimen(float nodeDimen) {
+        if ((mNodeDimen[1] = nodeDimen) > 0) {
+            mNodeHeightNoExactly = false;
+        }
+    }
+
+    public int getRowCount() {
+        return mRowCount;
+    }
+
+    public void setRowCount(int rowCount) {
+        mRowCount = rowCount;
+    }
+
+    public int getColumnCount() {
+        return mColumnCount;
+    }
+
+    public void setColumnCount(int columnCount) {
+        mColumnCount = columnCount;
+    }
+
+    public boolean isNodeSquare() {
+        return mNodeSquare;
+    }
+
+    public void setNodeSquare(boolean nodeSquare) {
+        mNodeSquare = nodeSquare;
+    }
+
+    public float getLineWeight() {
+        return mLineWeight;
+    }
+
+    public void setLineWeight(float lineWeight) {
+        mLineWeight = lineWeight;
+    }
+
+    public int getLineColor() {
+        return mLineColor;
+    }
+
+    public void setLineColor(int lineColor) {
+        mLineColor = lineColor;
+    }
+
+    public boolean isNoRight() {
+        return mNoRight;
+    }
+
+    public void setNoRight(boolean noRight) {
+        mNoRight = noRight;
+    }
+
+    public boolean isNoBottom() {
+        return mNoBottom;
+    }
+
+    public void setNoBottom(boolean noBottom) {
+        mNoBottom = noBottom;
+    }
+
+    public boolean isNoLeft() {
+        return mNoLeft;
+    }
+
+    public void setNoLeft(boolean noLeft) {
+        mNoLeft = noLeft;
+    }
+
+    public boolean isNoTop() {
+        return mNoTop;
+    }
+
+    public void setNoTop(boolean noTop) {
+        mNoTop = noTop;
     }
 }
